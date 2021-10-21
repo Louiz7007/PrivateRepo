@@ -1,5 +1,6 @@
 # Aufgabe 2: Berechnung Volumen Pyramide in Ellen
 # Umrechnung in Kubikmeter
+# Umrechnung in römische Scheffel
 # Ausgabe beider Ergebnisse
 # Zusätzlich: Ausgabe benötigter Sandsteinblöcke
 

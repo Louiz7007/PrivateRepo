@@ -6,7 +6,7 @@ bmx = gewicht / (groesse ** 2)
 while (bmx > 25):
     print("Ihr BMI: ", "%2.2f" % bmx)
     print()
-    antwort = input("Möchten Sie Ihr Gewicht oder Ihre Größe ändern? (gew / gr)")
+    antwort = input("Möchten Sie Ihr Gewicht oder Ihre Größe ändern? (gew / gr) ")
     print()
     if (antwort == "gew"):
         gewicht = float(input("Neues Gewicht in Kg: "))

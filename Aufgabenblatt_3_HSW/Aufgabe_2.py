@@ -15,58 +15,79 @@ def startMessage():
 """
 Funktion für den Zug des Spielers
 """
-def playerTurn(points):
+def playerTurn():
     number = int(input("Du: "))
-    if (number == 0):
-        return 99999
-    points += number
-    return points
+    return number
 
 """
 Funktion für den Zug des Computers
 """
-def computerTurn(points):
+def computerTurn():
     number = random.randint(1, 16)
     print("Computer: ", number)
-    points += number
-    return points
+    return number
 
 """
 Funktion einer Spielrunde
 """
 def game():
     points = 0
+    correct = False
     while(42):
-        """
-        Schleife führt den playerTurn() aus und erhöht die Gesamtpunkte (points),
-        dann wird geprüft, ob 50 Punkte erreicht/überschritten wurden und das Spiel
-        ggf. beendet.
-        Dann wird das gleiche für den computerTurn() durchgeführt.
-        """
-        points = playerTurn(points)
-        if (points == 99999): # prüft, ob der Spieler 0 eingegeben hat
-            print("Du hast das Spiel beendet!")
-            break;
-        print()
-        print("Summe: ", points)
-        if(points >= 50): # prüft, ob der Spieler die 50 überschritten hat
+        while(not correct):
+            playerNumber = playerTurn()
+            if (playerNumber == 0):
+                print("Du hast das Spiel beendet!")
+                end = True;
+            elif (playerNumber >= 1 or playerNumber <= 16):
+                correct = True
+        points += playerNumber
+        correct = False
+        if (points >= 50):
             print("Du hast verloren!")
             break;
+        print("Summe: ", points)
+        print()
 
+        points += computerTurn()
+        if (points >= 50):
+            print("Computer hat verloren!")
+            break;
+        print("Summe: ", points)
         print()
         
-        points = computerTurn(points)
-        print()
-        print("Summe: ", points)
-        if(points >= 50): # prüft, ob der Computer die 50 überschritten hat
-            print("Der Computer hat verloren!")
-            break;
-        print("-------------------------")
-        print()
-       
 """
 Hier beginnt das Spiel
 """
 startMessage()
 print()
 game()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
